@@ -43,3 +43,22 @@ while True:
     except:
         break 
 ```
+
+# 2.HJ103 Redraiment的走法
+Redraiment是走梅花桩的高手。Redraiment可以选择任意一个起点，从前到后，但只能从低处往高处的桩子走。他希望走的步数最多，你能替Redraiment研究他最多走的步数吗？
+
+数据范围：每组数据长度满足 1 \le n \le 200 \1≤n≤200  ， 数据大小满足 0 \1≤val≤350 
+
+```python
+while True:
+    try:
+        n,nums=int(input()),list(map(int,input().split()))
+        dp=[1]*n 
+        for i in range(n):
+            for j in range(i):
+                if nums[j]<nums[i]:
+                    dp[i]=max(dp[i],dp[j]+1)
+        print(max(dp))
+    except:
+        break 
+```
